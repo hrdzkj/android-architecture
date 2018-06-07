@@ -13,6 +13,7 @@ import javax.inject.Inject;
  * We then override applicationInjector() which tells Dagger how to make our @Singleton Component
  * We never have to call `component.inject(this)` as {@link DaggerApplication} will do that for us.
  */
+// 继承DaggerApplication并且实现applicationInjector方法，这是为了让Activity不用每个都去调用component的inject方法
 public class ToDoApplication extends DaggerApplication {
     @Inject
     TasksRepository tasksRepository;

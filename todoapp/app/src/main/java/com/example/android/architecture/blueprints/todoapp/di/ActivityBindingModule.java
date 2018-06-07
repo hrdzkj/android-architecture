@@ -21,6 +21,9 @@ import dagger.android.ContributesAndroidInjector;
  */
 @Module
 public abstract class ActivityBindingModule {
+    // 注意下面的这四个`Module`
+
+    // TasksModule是给`TasksActivity`提供注入对象的,我想同理下面的。
     @ActivityScoped
     @ContributesAndroidInjector(modules = TasksModule.class)
     abstract TasksActivity tasksActivity();

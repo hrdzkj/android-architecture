@@ -10,6 +10,8 @@ import dagger.android.ContributesAndroidInjector;
 /**
  * This is a Dagger module. We use this to pass in the View dependency to the
  * {@link TasksPresenter}.
+ *
+ * 这里面分别提供了对应View的Fragment以及对应Presenter
  */
 @Module
 public abstract class TasksModule {

@@ -26,6 +26,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.android.architecture.blueprints.todoapp.R;
+import com.example.android.architecture.blueprints.todoapp.di.DaggerAppComponent;
 import com.example.android.architecture.blueprints.todoapp.statistics.StatisticsActivity;
 import com.example.android.architecture.blueprints.todoapp.util.ActivityUtils;
 
@@ -34,11 +35,15 @@ import javax.inject.Inject;
 import dagger.Lazy;
 import dagger.android.support.DaggerAppCompatActivity;
 
+
+// incremental-verifier--mock--com /javac  instan-run-apk/outpuc
 public class TasksActivity extends DaggerAppCompatActivity {
 
     private static final String CURRENT_FILTERING_KEY = "CURRENT_FILTERING_KEY";
     @Inject
     TasksPresenter mTasksPresenter;
+
+    // 可以使用Lazy来包装Container中需要被注入的类型为延迟加载，调用get时才创建
     @Inject
     Lazy<TasksFragment> taskFragmentProvider;
     private DrawerLayout mDrawerLayout;
