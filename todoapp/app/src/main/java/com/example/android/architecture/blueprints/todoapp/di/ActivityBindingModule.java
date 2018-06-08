@@ -40,3 +40,19 @@ public abstract class ActivityBindingModule {
     @ContributesAndroidInjector(modules = TaskDetailPresenterModule.class)
     abstract TaskDetailActivity taskDetailActivity();
 }
+
+/*
+如果被@Provides标注的方法带有参数，dagger2会自动寻找本Module中其他返回值类型为参数的类型的且被@Provides标注的方法，
+如果本Module中找不到就会去看这个类的构造参数是否被@Inject标注了
+（所以一般情况下Module中方法的返回值都不能相同，当然也有办法使多个方法的返回值类型相同，
+有需要的朋友请自行研究吧，本篇只讲解基础上手,@NAME @Qualifier）
+
+
+在Module的构造函数带有参数且参数被使用的情况下，所生产的Component类就没有create()方法了
+(理解:因为component用到的module有参数，不能自动生成，要程序员提供一个，所以Component不能自己creat默认的出来了)
+
+
+presenter注入到view层:值得一提的是谷歌不推荐直接将presenter的构造参数添加注解，
+更加推荐的是将presenter放到Module里进行管理，因为这样代码更加容易管理。
+项目： 时间，进度，处理方式（沟通）
+ */

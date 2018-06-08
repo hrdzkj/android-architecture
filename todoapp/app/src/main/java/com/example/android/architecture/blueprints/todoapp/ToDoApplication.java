@@ -20,6 +20,7 @@ public class ToDoApplication extends DaggerApplication {
 
     @Override
     protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
+ // 在AppComponent中将dagger2库里的AndroidInjectionModule注入到Application中，并将Application实现相应的接口
         return DaggerAppComponent.builder().application(this).build();
     }
 
